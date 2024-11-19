@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "EUROs squads. Gerrard C1",
+  "height": 320,
+  "width": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MCUser2024/data/main/Congo_fig3.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Date"},
+      {
+        "field": "rank",
+        "type": "quantitative",
+        "title": "HCI score"
+      }
+    ],
+    "y": {"field": "country", "sort": "-x", "title": ""},
+    "x": {
+      "aggregate": "sum",
+      "field": "rank",
+      "scale": {"domain": [0,0.55]},
+      "title": "HDI score"
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "range": [
+       
+      
+      "#0e6655",    
+      "#26dea7",
+      "#0e6655",
+    
+      "#0e6655",
+    
+      "#0e6655",
+    
+      "#0e6655",
+   
+      "#0e6655",
+   
+      "#0e6655",
+  
+      "#0e6655",
+   
+    "#5499c7",  
+      "#0e6655",
+      
+      
+      
+      "#0e6655"
+    
+     
+ 
+        ]
+      },
+      "legend": null
+    }
+  }
+}

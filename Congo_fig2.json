@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/MCUser2024/data/main/Congo_fig2.csv"
+  },
+  "width": 130,
+  "height": 380,
+  "mark": {"type": "bar", "size": 35},
+  "encoding": {
+    "column": {
+      "field": "forest",
+      "type": "nominal",
+      "sort": [],
+      "title": null,
+      "spacing": 10
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": null,
+      "scale": {"domain": [-1.5, 1.8]}
+      
+    },
+    "x": {
+      "field": "metric",
+      "axis": {
+        "title": "",
+        "labelColor": "white",
+        "ticks": false,
+        "labelAngle": 30,
+        "labelPadding": -30
+      },
+      "sort": []
+    },
+    "color": {
+      "field": "metric",
+      "legend": {"orient": "right", "labelLimit": 1000, "labelFontSize": 12, "labelPadding": 0},
+      "title": null,
+      "scale": {"range": ["#26dea7", "#0e6655", "#5499c7"]}
+    },
+    "tooltip": [
+      {"field": "forest", "type": "nominal", "title": "Carbon sink"},
+      {"field": "metric", "type": "nominal", "title": "Measure"},
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Value"
+      }
+    ]
+  },
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

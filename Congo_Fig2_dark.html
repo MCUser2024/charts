@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {"$schema":"https://vega.github.io/schema/vega-lite/v5.json","data":{"url":"https://raw.githubusercontent.com/MCUser2024/data/main/Congo_fig2.csv"},"width":130,"height":380,"mark":{"type":"bar","size":35},"encoding":{"column":{"field":"forest","type":"nominal","sort":[],"title":null,"header":{"labelColor":"white"},"spacing":10},"y":{"field":"value","type":"quantitative","title":null,"scale":{"domain":[-1.5,1.8]},"axis":{"labelColor":"white","titleColor":"white","gridColor":"#444"}},"x":{"field":"metric","axis":{"title":"","labelColor":"black","ticks":false,"labelAngle":30,"labelPadding":-30,"domainColor":"white"},"sort":[]},"color":{"field":"metric","legend":{"orient":"right","labelLimit":1000,"labelFontSize":12,"labelPadding":0,"labelColor":"white","titleColor":"white"},"title":null,"scale":{"range":["#26dea7","#1c7c3c","#5499c7"]}},"tooltip":[{"field":"forest","type":"nominal","title":"Carbon sink"},{"field":"metric","type":"nominal","title":"Measure"},{"field":"value","type":"quantitative","title":"Value"}]},"config":{"background":"#222","view":{"stroke":"transparent"},"axis":{"domainWidth":1,"domainColor":"white","tickColor":"white"}}};
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
+  </body>
+</html>

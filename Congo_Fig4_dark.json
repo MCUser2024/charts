@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ 
+  "height": 320,
+  "width": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MCUser2024/data/main/Congo_fig3.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "rank", "type": "quantitative", "title": "HCI score"}
+    ],
+    "y": {
+      "field": "country",
+      "sort": "-x",
+      "title": "",
+      "axis": {
+        "labelColor": "#ffffff"
+      }
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "rank",
+      "scale": {"domain": [0, 0.55]},
+      "title": "HDI score",
+      "axis": {
+        "titleColor": "#ffffff",
+        "labelColor": "#ffffff"
+      }
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "#1c7c3c",
+          "#26dea7",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#1c7c3c",
+          "#5499c7",
+          "#1c7c3c",
+          "#1c7c3c"
+        ]
+      },
+      "legend": null
+    }
+  },
+  "background": "#222222",
+  "config": {
+    "axis": {
+      "gridColor": "#444444"
+    }
+  }
+}

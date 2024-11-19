@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "",
+    "anchor": "start",
+    "subtitle": "",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ffffff",
+    "subtitleColor": "#ffffff"
+  },
+  "height": 350,
+  "width": 500,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#222222",
+  "view": {"fill": "#222222", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.economicsobservatory.com/cod/gdpp?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "line", "color": "#26dea7", "strokeWidth": 2.8},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "",
+        "titleColor": "#ffffff",
+        "grid": false,
+        "labelColor": "#ffffff"
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "",
+        "titleColor": "#ffffff",
+        "grid": true,
+        "gridColor": "#444444",
+        "labelColor": "#ffffff"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "date",
+        "type": "temporal",
+        "timeUnit": "year",
+        "title": "Year"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "GDP per capita (2015 USD)"
+      }
+    ]
+  }
+}

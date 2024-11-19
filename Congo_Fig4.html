@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "",
+  "height": 320,
+  "width": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MCUser2024/data/main/Congo_fig3.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {
+        "field": "rank",
+        "type": "quantitative",
+        "title": "HCI score"
+      }
+    ],
+    "y": {"field": "country", "sort": "-x", "title": ""},
+    "x": {
+      "aggregate": "sum",
+      "field": "rank",
+      "scale": {"domain": [0,0.55]},
+      "title": "HDI score"
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "range": [
+       
+      
+      "#0e6655",    
+      "#26dea7",
+      "#0e6655",
+    
+      "#0e6655",
+    
+      "#0e6655",
+    
+      "#0e6655",
+   
+      "#0e6655",
+   
+      "#0e6655",
+  
+      "#0e6655",
+   
+    "#5499c7",  
+      "#0e6655",
+      
+      
+      
+      "#0e6655"
+    
+     
+ 
+        ]
+      },
+      "legend": null
+    }
+  }
+};
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
+  </body>
+</html>
