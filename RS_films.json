@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 300,
+  "width": 550,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MCUser2024/data/refs/heads/main/RS_films_b.csv"
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "film",
+          "axis": {"labelAngle": 45},
+          "title": null,
+          "type": "nominal",
+          "sort": []
+        },
+        "y": {
+          "field": "RT score",
+          "type": "quantitative",
+          "title": null,
+          "axis": {"format": "%"}
+        },
+        "color": {
+          "field": "RT rating",
+          "type": "nominal",
+          "legend": {"title": "Rotten Tomatoes Rating", "orient": "top"}
+        },
+        "tooltip": [
+          {"field": "film", "type": "nominal", "title": "Film"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "RT score", "type": "quantitative", "title": "Rotten Tomatoes Score", "format": ".0%"},
+          {"field": "RT rating", "type": "nominal", "title": "Rotten Tomomatoes Rating"},
+          {"field": "IMDB score", "type": "quantitative", "title": "IMDB Score", "format": ".0%"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 9,
+        "fontWeight": "lighter",
+        "angle": 90,
+        "align": "left",
+        "dy": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "film",
+          "type": "nominal",
+          "sort": []
+        },
+        "y": {
+          "field": "RT score",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "lightgrey"
+        }
+      }
+    }
+  ]
+}
