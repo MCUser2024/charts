@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vega-Lite Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <h1>Vega-Lite Chart</h1>
+    <div id="vis"></div>
+
+    <script>
+        const spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/MCUser2024/data/refs/heads/main/Film_TV_C2.csv"
+            },
+            "width": 40,
+            "height": 260,
+            "background": "#000000",
+            "mark": {"type": "bar", "size": 19},
+            "encoding": {
+                "column": {
+                    "field": "name",
+                    "type": "nominal",
+                    "sort": [],
+                    "title": null,
+                    "header": {
+                        "labelAngle": 270,
+                        "labelAnchor": "middle",
+                        "labelAlign": "right",
+                        "labelColor": "#d3d3d3"
+                    },
+                    "spacing": 10
+                },
+                "y": {
+                    "field": "value",
+                    "type": "quantitative",
+                    "title": null,
+                    "axis": {
+                        "format": "%",
+                        "labelColor": "#d3d3d3",
+                        "tickColor": "#d3d3d3"
+                    },
+                    "scale": {"domain": [0, 1]}
+                },
+                "x": {
+                    "field": "year",
+                    "axis": {
+                        "title": "",
+                        "labels": false,
+                        "ticks": false,
+                        "labelAngle": 30,
+                        "labelPadding": -30
+                    },
+                    "sort": []
+                },
+                "color": {
+                    "field": "year",
+                    "legend": {
+                        "orient": "right",
+                        "labelLimit": 1000,
+                        "labelFontSize": 12,
+                        "labelPadding": 0,
+                        "labelColor": "#d3d3d3"
+                    },
+                    "title": null,
+                    "scale": {"range": ["#ff77b0", "#ffa07a"]}
+                },
+                "tooltip": [
+                    {"field": "name", "type": "nominal", "title": "Platform"},
+                    {"field": "year", "type": "nominal", "title": "Year"},
+                    {"field": "value", "type": "quantitative", "title": "Share with finished sales", "format": ".0%"}
+                ]
+            },
+            "config": {
+                "view": {"stroke": "transparent"},
+                "axis": {
+                    "domainWidth": 1,
+                    "domainColor": "#d3d3d3"
+                }
+            }
+        };
+
+        vegaEmbed('#vis', spec).then(function(result) {
+            console.log('Vega-Lite visualization rendered successfully!');
+        }).catch(console.error);
+    </script>
+</body>
+</html>
